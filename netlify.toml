@@ -1,0 +1,18 @@
+# Netlify configuration for ZMiras — security headers for all routes.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'strict-dynamic' https://cdn.gpteng.co; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' data: blob: https://jlpnljkbjejtmpzrokyd.supabase.co; connect-src 'self' https://jlpnljkbjejtmpzrokyd.supabase.co wss://jlpnljkbjejtmpzrokyd.supabase.co; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'self'; frame-ancestors 'self' https://lovable.dev https://*.lovable.dev https://*.lovable.app; upgrade-insecure-requests"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), geolocation=(), payment=(), usb=(), interest-cohort=(), microphone=(self)"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-site"
+    X-DNS-Prefetch-Control = "off"
